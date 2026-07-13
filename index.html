@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>안녕! 나는 후추야 🐾</title>
+
+    <!-- Fonts: 본문용 Pretendard, 귀여운 제목용 Jua -->
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jua&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS 로드 및 커스텀 설정 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              "cream-white": "#FFF8ED",
+              "cheese-beige": "#E3B66A",
+              "caramel-brown": "#A86E3A",
+              "pink-jelly": "#F7C6D5",
+            },
+            fontFamily: {
+              sans: ["Pretendard", "sans-serif"],
+              title: ["Jua", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      body {
+        background-color: #fff8ed;
+        color: #a86e3a;
+        overflow-x: hidden;
+      }
+
+      /* 스크롤 시 부드럽게 나타나는 애니메이션 */
+      .fade-in-up {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 0.8s ease-out forwards;
+      }
+
+      .delay-100 {
+        animation-delay: 100ms;
+      }
+      .delay-200 {
+        animation-delay: 200ms;
+      }
+      .delay-300 {
+        animation-delay: 300ms;
+      }
+
+      @keyframes fadeInUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* 카드에 마우스를 올렸을 때 떠오르는 효과 */
+      .hover-float {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .hover-float:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px -5px rgba(227, 182, 106, 0.4);
+      }
+    </style>
+  </head>
+  <body
+    class="bg-cream-white text-caramel-brown font-sans antialiased selection:bg-pink-jelly selection:text-white"
+  >
+    <!-- 1. Hero Section: 👋 안녕! 나는 후추야! -->
+    <header
+      class="relative min-h-screen flex items-center justify-center px-6 py-20 overflow-hidden"
+    >
+      <!-- 배경 장식용 동그라미들 -->
+      <div
+        class="absolute top-10 left-10 w-32 h-32 bg-cheese-beige rounded-full mix-blend-multiply filter blur-2xl opacity-50"
+      ></div>
+      <div
+        class="absolute top-10 right-10 w-32 h-32 bg-pink-jelly rounded-full mix-blend-multiply filter blur-2xl opacity-50"
+      ></div>
+
+      <div class="max-w-4xl mx-auto text-center z-10 fade-in-up">
+        <div class="inline-block mb-6 relative">
+          <!-- 💡 [사진 변경 방법 1 - 메인 프로필 사진] -->
+          <!-- 아래 img 태그의 src="인터넷주소" 부분을 지우고, 후추 사진 파일 이름(예: src="huchu-profile.jpg")을 적어주세요! -->
+          <img
+            src="/IMG_6390.jpg"
+            alt="후추 사진"
+            class="w-48 h-48 md:w-64 md:h-64 rounded-full object-cover border-4 border-white shadow-xl mx-auto"
+          />
+
+          <div
+            class="absolute bottom-2 right-2 bg-pink-jelly text-white w-12 h-12 rounded-full flex items-center justify-center text-2xl shadow-lg border-2 border-white rotate-12"
+          >
+            🐾
+          </div>
+        </div>
+
+        <h1
+          class="font-title text-5xl md:text-6xl lg:text-7xl mb-4 text-caramel-brown"
+        >
+          👋 안녕! 나는 <span class="text-cheese-beige">후추</span>야!
+        </h1>
+
+        <div
+          class="flex flex-wrap justify-center gap-3 mb-8 text-sm md:text-base font-medium"
+        >
+          <span
+            class="bg-white px-4 py-2 rounded-full shadow-sm text-caramel-brown border border-cheese-beige/30"
+            >이름: 후추</span
+          >
+          <span
+            class="bg-white px-4 py-2 rounded-full shadow-sm text-caramel-brown border border-cheese-beige/30"
+            >나이: 6살</span
+          >
+          <span
+            class="bg-white px-4 py-2 rounded-full shadow-sm text-caramel-brown border border-cheese-beige/30"
+            >품종: 코리안 숏헤어</span
+          >
+        </div>
+
+        <div
+          class="bg-white/60 backdrop-blur-sm p-6 rounded-3xl shadow-sm inline-block max-w-2xl border border-white"
+        >
+          <p
+            class="text-lg md:text-xl leading-relaxed text-caramel-brown/80 font-medium italic"
+          >
+            "작은 발걸음으로 매일의 행복을 전하는 고양이, 후추." 🐾<br />
+            "천천히 다가와 오래도록 곁을 지켜주는 친구, 후추." 🤍
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <!-- 2. Intro & 3. Likes Section -->
+    <section class="py-20 px-6 bg-white/40">
+      <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+        <!-- 나를 소개할게 -->
+        <div class="fade-in-up delay-100">
+          <h2 class="font-title text-4xl mb-6 flex items-center gap-2">
+            <span class="text-pink-jelly text-3xl">😺</span> 나를 소개할게!
+          </h2>
+          <div
+            class="bg-white p-8 rounded-3xl shadow-sm border border-cheese-beige/20 text-lg leading-loose"
+          >
+            <p class="mb-4">
+              반가워! 나는 노릇노릇한 치즈색 털과 하얀 솜방망이를 가진
+              <strong>후추</strong>라고 해.
+            </p>
+            <p>
+              처음엔 조금 도도해 보일지도 모르지만, 마음을 열면 누구보다 사람
+              곁을 좋아하고 따뜻한 온기를 나누는 걸 즐긴단다. 말보다는 다정한
+              눈빛으로 내 마음을 전하는 편이야.
+            </p>
+          </div>
+        </div>
+
+        <!-- 내가 좋아하는 것 -->
+        <div class="fade-in-up delay-200">
+          <h2 class="font-title text-4xl mb-6 flex items-center gap-2">
+            <span class="text-cheese-beige text-3xl">💛</span> 내가 좋아하는 것
+          </h2>
+          <div class="grid grid-cols-2 gap-4">
+            <div
+              class="bg-white p-6 rounded-3xl shadow-sm border border-cheese-beige/20 text-center hover-float"
+            >
+              <div class="text-3xl mb-2">🐟</div>
+              <h3 class="font-bold text-caramel-brown mb-1">음식</h3>
+              <p class="text-sm text-caramel-brown/70">
+                부드러운 츄르와 닭가슴살
+              </p>
+            </div>
+            <div
+              class="bg-white p-6 rounded-3xl shadow-sm border border-cheese-beige/20 text-center hover-float"
+            >
+              <div class="text-3xl mb-2">🧶</div>
+              <h3 class="font-bold text-caramel-brown mb-1">장난감</h3>
+              <p class="text-sm text-caramel-brown/70">
+                바스락거리는 깃털 낚시대
+              </p>
+            </div>
+            <div
+              class="bg-white p-6 rounded-3xl shadow-sm border border-cheese-beige/20 text-center hover-float"
+            >
+              <div class="text-3xl mb-2">☀️</div>
+              <h3 class="font-bold text-caramel-brown mb-1">장소</h3>
+              <p class="text-sm text-caramel-brown/70">
+                햇살이 잘 드는 창가 자리
+              </p>
+            </div>
+            <div
+              class="bg-white p-6 rounded-3xl shadow-sm border border-cheese-beige/20 text-center hover-float"
+            >
+              <div class="text-3xl mb-2">🧍</div>
+              <h3 class="font-bold text-caramel-brown mb-1">사람</h3>
+              <p class="text-sm text-caramel-brown/70">
+                나를 부드럽게 쓰다듬어주는 집사
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Charming Points (Strengths Cards) -->
+    <section class="py-24 px-6">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="font-title text-4xl text-center mb-12">
+          후추의 <span class="text-pink-jelly">매력 포인트</span> 3가지 ✨
+        </h2>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Card 1 -->
+          <div
+            class="bg-white rounded-3xl p-8 shadow-sm border-t-8 border-cheese-beige hover-float fade-in-up delay-100"
+          >
+            <div
+              class="text-4xl mb-4 bg-cream-white w-16 h-16 rounded-full flex items-center justify-center"
+            >
+              🐾
+            </div>
+            <h3 class="font-title text-2xl mb-3">호기심 대장</h3>
+            <p class="text-caramel-brown/80 leading-relaxed">
+              호기심이 정말 많아서 집안의 새로운 물건이나 구석구석을 탐험하는
+              것을 아주 좋아해요. 후추의 작은 발걸음을 따라가다 보면 웃음이
+              난답니다.
+            </p>
+          </div>
+
+          <!-- Card 2 -->
+          <div
+            class="bg-white rounded-3xl p-8 shadow-sm border-t-8 border-pink-jelly hover-float fade-in-up delay-200"
+          >
+            <div
+              class="text-4xl mb-4 bg-cream-white w-16 h-16 rounded-full flex items-center justify-center"
+            >
+              💛
+            </div>
+            <h3 class="font-title text-2xl mb-3">진정한 힐링냥</h3>
+            <p class="text-caramel-brown/80 leading-relaxed">
+              기분이 좋을 때면 모터 소리 같은 '골골송'을 부르며 다가와요.
+              부드러운 털과 사랑스러운 애교는 하루의 피로를 사르르 녹여준답니다.
+            </p>
+          </div>
+
+          <!-- Card 3 -->
+          <div
+            class="bg-white rounded-3xl p-8 shadow-sm border-t-8 border-caramel-brown hover-float fade-in-up delay-300"
+          >
+            <div
+              class="text-4xl mb-4 bg-cream-white w-16 h-16 rounded-full flex items-center justify-center"
+            >
+              😺
+            </div>
+            <h3 class="font-title text-2xl mb-3">치명적 반전 매력</h3>
+            <p class="text-caramel-brown/80 leading-relaxed">
+              처음엔 낯을 가리며 도도해 보이지만, 한 번 마음을 열고 친해지면
+              어느새 스르륵 사람 곁으로 다가와 체온을 나누는 걸 좋아해요.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Gallery: 나의 하루 -->
+    <section class="py-20 px-6 bg-white/40">
+      <div class="max-w-5xl mx-auto">
+        <h2
+          class="font-title text-4xl mb-10 text-center flex items-center justify-center gap-2"
+        >
+          <span class="text-3xl text-cheese-beige">📸</span> 후추의 하루
+        </h2>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+          <!-- 💡 [사진 변경 방법 2 - 갤러리 사진들] -->
+          <!-- 갤러리 사진들도 각각의 src="인터넷주소" 부분을 실제 준비하신 사진 파일명으로 변경해주세요. -->
+
+          <!-- 갤러리 사진 1 -->
+          <div
+            class="aspect-square overflow-hidden rounded-2xl shadow-sm group hover-float fade-in-up"
+          >
+            <img
+              src="/IMG_3564.jpg"
+              alt="낮잠 자기"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            />
+          </div>
+          <!-- 갤러리 사진 2 -->
+          <div
+            class="aspect-square overflow-hidden rounded-2xl shadow-sm group hover-float fade-in-up delay-100"
+          >
+            <img
+              src="/IMG_5640.PNG"
+              alt="놀기"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            />
+          </div>
+          <!-- 갤러리 사진 3 -->
+          <div
+            class="aspect-square overflow-hidden rounded-2xl shadow-sm group hover-float fade-in-up delay-200"
+          >
+            <img
+              src="/IMG_3270.jpg"
+              alt="집사와 함께하는 시간"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Footer & CTA -->
+    <footer class="py-24 px-6 text-center relative overflow-hidden">
+      <!-- 배경 장식 -->
+      <div
+        class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[800px] h-[400px] bg-cheese-beige/10 rounded-t-full -z-10"
+      ></div>
+
+      <div class="max-w-2xl mx-auto fade-in-up">
+        <div class="text-5xl mb-6">👋</div>
+        <h2 class="font-title text-4xl mb-4">다음에 또 놀러 와!</h2>
+        <p class="text-xl text-caramel-brown/80 mb-8 font-medium">
+          "오늘 내 이야기를 들어줘서 고마워!<br />다음에도 놀러 와서 나와
+          함께해!"
+        </p>
+
+        <button
+          onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+          class="bg-cheese-beige text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-caramel-brown transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+        >
+          후추 처음부터 다시 보기 🐾
+        </button>
+      </div>
+
+      <div class="mt-20 text-sm text-caramel-brown/50 font-medium">
+        © 2026 Huchu the Cat. All rights reserved.<br />
+        Designed with warm & cozy hearts.
+      </div>
+    </footer>
+
+    <!-- 스크롤 이벤트 스크립트 (애니메이션 트리거) -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const observerOptions = {
+          root: null,
+          rootMargin: "0px",
+          threshold: 0.1,
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.style.opacity = "1";
+              entry.target.style.transform = "translateY(0)";
+              observer.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
+
+        const elements = document.querySelectorAll(".fade-in-up");
+        elements.forEach((el) => {
+          observer.observe(el);
+        });
+      });
+    </script>
+  </body>
+</html>
